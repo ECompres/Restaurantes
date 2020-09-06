@@ -40,6 +40,11 @@
           </nz-form-item>
         </div>
       </div>
+      <div nz-row [nzJustify]="'center'">
+        <agm-map [latitude]="restaurant.lat" [longitude]="restaurant.lng">
+          <agm-marker [latitude]="restaurant.lat" [longitude]="restaurant.lng"></agm-marker>
+        </agm-map>
+      </div>
     </form>
   </div></div>
 </div> 

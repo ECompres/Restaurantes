@@ -12,6 +12,7 @@ import { UsStatesPipe } from './pipes/us-states.pipe';
 import { environment } from '../environments/environment';
 import { RatingModule } from 'ng-starrating';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { AgmCoreModule } from '@agm/core';
 //AngularCore Imports
 
 //Imports Componentes Angular
@@ -103,8 +104,13 @@ registerLocaleData(es);
     RatingModule,
     NzInputNumberModule,
     NzCardModule,
-    NzResizableModule
+    NzResizableModule,
     
+    AgmCoreModule.forRoot(
+      {
+        apiKey: 'AIzaSyAMhgAR8oCjKZv1f6QYU0tCIDNQTfdQaFs'
+      }
+    )
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ,
     RestaurantService,
