@@ -12,7 +12,6 @@ import { CountryPipe } from './pipes/country.pipe';
 import { UsStatesPipe } from './pipes/us-states.pipe';
 import { environment } from '../environments/environment';
 import { RatingModule } from 'ng-starrating';
-
 //AngularCore Imports
 
 //Imports Componentes Angular
@@ -101,7 +100,8 @@ registerLocaleData(es);
     NzPaginationModule,
     RatingModule,
     NzInputNumberModule,
-    NzCardModule
+    NzCardModule,
+    
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ,
     RestaurantService,

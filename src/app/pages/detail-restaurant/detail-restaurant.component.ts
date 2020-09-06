@@ -19,9 +19,7 @@ export class DetailRestaurantComponent implements OnInit {
 
 
   data() {
-    alert(this.fechaReservacion)
-    alert(this.horaReservacion)
-    alert(this.demoValue)
+    console.log(this.restaurant)
   }
   constructor() {
   }
