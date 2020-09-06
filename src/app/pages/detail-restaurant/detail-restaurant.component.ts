@@ -16,6 +16,7 @@ export class DetailRestaurantComponent implements OnInit {
   horaReservacion: any;
   cantidadPersonas: any;
   demoValue;
+  
 
 
   data() {

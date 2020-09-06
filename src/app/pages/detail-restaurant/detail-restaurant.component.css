@@ -21,3 +21,7 @@
     text-align: left;
     position: absolute;
   }
+  agm-map {
+    
+    height: 300px;
+  }
