@@ -1,39 +1,46 @@
-<div *ngIf="restaurant" class="content">
-  <div class="presentation">
-    <h1>{{restaurant.name}}</h1>
-    <img [src]="restaurant.image_url" />
+<div *ngIf="restaurant" class="content" nz-row [nzJustify]="'center'">
+  <div nz-col nzSpan="8">
+    <img [src]="restaurant.image_url" width="100" height="100" />
   </div>
-  <div class="formulario">
-    <h1>Reservar:</h1>
-    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
-      <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-          <nz-date-picker formControlName="datePicker" [(ngModel)]="fechaReservacion"></nz-date-picker>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Hora</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-          <nz-time-picker formControlName="timePicker" [(ngModel)]="horaReservacion"></nz-time-picker>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Personas:</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-          <nz-input-number [(ngModel)]="demoValue" [nzMin]="1" [nzMax]="10" [nzStep]="1"></nz-input-number>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
-          <button nz-button nzType="primary" (click)="data()">Submit</button>
-        </nz-form-control>
-      </nz-form-item>
+  <div nz-col nzSpan="16">   
+    <h1 class="m-15">{{restaurant.name}}</h1>
+    <div class="form m-15">
+    <form nz-form [formGroup]="form">
+      <div nz-row [nzJustify]="'center'">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control  nzErrorTip="Debe ingresar la fecha!">
+              <label for="">Fecha de reservacion</label><br>
+              <nz-date-picker class="input-styles" formControlName="reservationDate" ></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Debe ingresar la hora!">
+              <label for="">Hora de reservacion</label><br>
+              <nz-time-picker class="input-styles"  formControlName="reservationHour" ></nz-time-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Debe ingresar la cantidad de personas!" >
+              <label for="">Cantidad de personas</label><br>
+              <nz-input-number class="input-styles"  formControlName="people" [nzMin]="1" [nzMax]="10" [nzStep]="1"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-control>
+              <label for=""></label><br>
+              <button nz-button class="reservation" nzType="primary" (click)="data()">Reservar</button>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
     </form>
-  </div>
-</div>
-<!--
-     -En los detalles debe haber un CARD donde yo 
-     pueda reservar con cantidad de personas
-     , dia y hora esa data se guardara en firebase,
- -->
+  </div></div>
+</div> 
+

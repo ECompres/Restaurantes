@@ -7,11 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { CountryPipe } from './pipes/country.pipe';
 import { UsStatesPipe } from './pipes/us-states.pipe';
 import { environment } from '../environments/environment';
 import { RatingModule } from 'ng-starrating';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 //AngularCore Imports
 
 //Imports Componentes Angular
@@ -48,6 +48,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzResizableModule } from 'ng-zorro-antd/resizable';
 //Imports NgZorro Componentes
 
 //Imports Angular Firebase
@@ -78,6 +79,7 @@ registerLocaleData(es);
   ],
   imports: [
     BrowserModule,
+    NzGridModule,
     AppRoutingModule,
     IconsProviderModule,
     NzLayoutModule,
@@ -101,6 +103,7 @@ registerLocaleData(es);
     RatingModule,
     NzInputNumberModule,
     NzCardModule,
+    NzResizableModule
     
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ,
