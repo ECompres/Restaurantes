@@ -1,8 +1,10 @@
 
 
 .content{
-    img{
-        height: 100%;
+    h1{color: rgba(0, 0, 0, 0.65);}
+    img{     
+        margin: 15px;
+        height: auto;
         width: 100%;
     }
     .form{
@@ -12,13 +14,26 @@
             margin: 0px 15px 15px 0px;
         }
         .reservation{
-            margin-top:15px;
             padding: 15px;
             width: 90%;
             height: auto;
+            background-color: #013769;
+            border-color:#013769;
         }
     }
     .m-15{
         margin: 30px;
     }
+    agm-map {
+        height: 300px;
+    }
+}
+::ng-deep .ant-modal-body {
+    padding: 0px!important;
+}
+::ng-deep .ant-modal-header {
+    box-shadow: 0px 10px 10px rgba(124, 124, 124, 0.3);
+}
+::ng-deep .ant-modal-footer{
+    box-shadow: 0px -10px 10px rgba(0,0,0,0.3);
 }
