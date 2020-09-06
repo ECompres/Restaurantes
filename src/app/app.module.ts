@@ -12,6 +12,7 @@ import { CountryPipe } from './pipes/country.pipe';
 import { UsStatesPipe } from './pipes/us-states.pipe';
 import { environment } from '../environments/environment';
 import { RatingModule } from 'ng-starrating';
+import { AgmCoreModule } from '@agm/core';
 //AngularCore Imports
 
 //Imports Componentes Angular
@@ -101,7 +102,11 @@ registerLocaleData(es);
     RatingModule,
     NzInputNumberModule,
     NzCardModule,
-    
+    AgmCoreModule.forRoot(
+      {
+        apiKey: 'AIzaSyAMhgAR8oCjKZv1f6QYU0tCIDNQTfdQaFs'
+      }
+    )
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ,
     RestaurantService,
