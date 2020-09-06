@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Bienvenido al portal de restaurantes</h1>
+    <h2>Por favor presione <b><a (click)="showModalRegister()">aquí</a></b> para proceder a su registro</h2>
+    <h3>¿Ya tiene cuenta? proceda a <b><a (click)="showModalLogin()">Iniciar sesión</a></b></h3>
+
+    <nz-modal [(nzVisible)]="isVisibleRegister" nzWrapClassName="vertical-center-modal" nzTitle="Registrar"
+        (nzOnCancel)="handleCancel()">
+        <app-register></app-register>
+        <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">Cancelar</button>
+        </div>
+    </nz-modal>
+
+    <nz-modal [(nzVisible)]="isVisibleLogin" nzWrapClassName="vertical-center-modal" nzTitle="Iniciar sesión"
+        (nzOnCancel)="handleCancel()">
+        <app-login></app-login>
+        <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">Cancelar</button>
+        </div>
+    </nz-modal>
+</div>

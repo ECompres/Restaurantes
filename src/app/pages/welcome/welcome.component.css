@@ -1,0 +1,50 @@
+.container{
+    background-image: url("../../../assets/restaurantHomePage.jpg");    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+::ng-deep .vertical-center-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ::ng-deep .vertical-center-modal .ant-modal {
+    top: 0;
+  }
+.container:before {
+	content:'';
+	position: absolute;
+     top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.container h1 {
+	font-size: 60px;
+	color: #fff;
+    position: relative;
+    text-align:center;
+    top:30%;
+}
+.container h2 {
+	font-size: 40px;
+	color: #fff;
+    position: relative;
+    text-align:center;
+    top:30%;
+}
+.container h3 {
+	font-size: 20px;
+	color: #fff;
+    position: relative;
+    text-align:center;
+    top:30%;
+}

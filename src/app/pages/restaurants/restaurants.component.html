@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Portal de restaurantes</h1>
+    <h2>Seleccione el país en el que se encuentra</h2>
+    <nz-select [(ngModel)]="selectCode">
+        <nz-option *ngFor="let pais of codeCountries" [nzLabel]="pais|country" [nzValue]="pais">
+            <ng-template class="hola">
+                {{ pais }}
+            </ng-template>
+        </nz-option>
+    </nz-select>
+    <button nz-button nzType="primary" (click)="Go(selectCode)">Buscar restaurantes!</button>
+    <div class="carousel">
+        <nz-carousel nzAutoPlay>
+            <div nz-carousel-content *ngFor="let index of array">
+                <img [src]="index" />
+            </div>
+        </nz-carousel>
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="16" nzRequired nzFor="email">E-mail:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="16" nzErrorTip="Ingrese un email válido">
+            <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="16" nzFor="password" nzRequired>Password:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="16" nzErrorTip="Ingrese su contraseña">
+            <input nz-input type="password" id="password" formControlName="password" />
+        </nz-form-control>
+    </nz-form-item>
+    <div nz-row class="login-form-margin">
+        <div nz-col [nzSpan]="12">
+            <a class="login-form-forgot">Contraseña olvidada</a>
+        </div>
+    </div>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Iniciar sesión</button>
+    
+</form>

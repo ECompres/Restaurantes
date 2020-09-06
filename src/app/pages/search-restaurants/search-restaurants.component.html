@@ -1,0 +1,65 @@
+<div class="container">
+    <h3>Restaurantes en {{countryCode|country}}</h3>
+    <h3>
+        Filtros:
+    </h3>
+    <div class="filtros">
+        <div class="estados">
+            <h4>Estados:</h4>
+            <nz-select [(ngModel)]="estadoSelect" (ngModelChange)="changed()">
+                <nz-option *ngFor="let estados of state" [nzLabel]="estados|usStates" [nzValue]="estados">
+                    <ng-template>
+                        {{ estados }}
+                    </ng-template>
+                </nz-option>
+            </nz-select>
+        </div>
+        <div class="ciudades">
+            <h4>Ciudades:</h4>
+            <nz-select [(ngModel)]="city" (ngModelChange)="cityChanged()">
+                <nz-option *ngFor="let cityS of cities" [nzLabel]="cityS" [nzValue]="cityS">
+                    <ng-template>
+                        {{ cityS }}
+                    </ng-template>
+                </nz-option>
+            </nz-select>
+        </div>
+    </div>
+
+    <div class="tableContainer">
+        <nz-table #basicTable [nzData]="listOfData" [nzPaginationPosition]="nzPaginationPosition">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Direccion</th>
+                    <th>Ciudad</th>
+                    <th>Rating</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of basicTable.data">
+                    <td>{{ data.name }}</td>
+                    <td *ngIf="data.state!=null">{{ data.state| usStates }}</td>
+                    <td *ngIf="data.state==null">No especificado</td>
+                    <td>{{ data.address }}</td>
+                    <td>{{ data.city }}</td>
+                    <td>
+                        {{data.price}}/4
+                    </td>
+                    <td><a><img (click)="reservate(data)" src="../../../assets/add.png"></a></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
+
+    <nz-modal [(nzVisible)]="reservateVisible" nzWrapClassName="vertical-center-modal" nzTitle="Reservar restaurante"
+        (nzOnCancel)="handleCancel()" nzWidth="80%">
+        <app-detail-restaurant [restaurant]="restaurant"></app-detail-restaurant>
+        <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">Cancelar</button>
+        </div>
+    </nz-modal>
+
+</div>

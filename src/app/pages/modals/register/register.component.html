@@ -1,0 +1,47 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="40" nzRequired nzFor="name">Nombres:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="40" nzErrorTip="Ingrese su nombre">
+            <input nz-input formControlName="name" id="name" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="40" nzRequired nzFor="lastName">Apellidos:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="40" nzErrorTip="Ingrese su apellido">
+            <input nz-input formControlName="lastName" id="lastName" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">E-mail:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese un email válido">
+            <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="password" nzRequired>Password:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese su contraseña">
+            <input nz-input type="password" id="password" formControlName="password"
+                (ngModelChange)="updateConfirmValidator()" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirmar contraseña:</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+            <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+            <ng-template #errorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Confirmar contraseña
+                </ng-container>
+                <ng-container *ngIf="control.hasError('confirm')">
+                    Las contraseñas no coinciden
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="10">
+            <button nz-button nzType="primary">Registrar</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

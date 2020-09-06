@@ -1,0 +1,39 @@
+<div *ngIf="restaurant" class="content">
+  <div class="presentation">
+    <h1>{{restaurant.name}}</h1>
+    <img [src]="restaurant.image_url" />
+  </div>
+  <div class="formulario">
+    <h1>Reservar:</h1>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-date-picker formControlName="datePicker" [(ngModel)]="fechaReservacion"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Hora</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-time-picker formControlName="timePicker" [(ngModel)]="horaReservacion"></nz-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Personas:</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-input-number [(ngModel)]="demoValue" [nzMin]="1" [nzMax]="10" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
+          <button nz-button nzType="primary" (click)="data()">Submit</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
+<!--
+     -En los detalles debe haber un CARD donde yo 
+     pueda reservar con cantidad de personas
+     , dia y hora esa data se guardara en firebase,
+ -->
