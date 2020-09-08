@@ -1,49 +1,13 @@
 <div class="container">
     <h2>Reservaciones de: {{nombreCliente}} </h2>
-
-    <div id="box">
-        <div class="textStyle">
-            <p>{{nombreRestaurante}}</p>
-            <p>{{estado}} - {{ciudad}}</p>
-        </div>
-        <div class="starRate">
-            <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-        </div>
-    </div>
-    <div id="box">
-        <div class="textStyle">
-            <p>{{nombreRestaurante}}</p>
-            <p>{{estado}} - {{ciudad}}</p>
-        </div>
-        <div class="starRate">
-            <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-        </div>
-    </div>
-    <div id="box">
-        <div class="textStyle">
-            <p>{{nombreRestaurante}}</p>
-            <p>{{estado}} - {{ciudad}}</p>
-        </div>
-        <div class="starRate">
-            <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-        </div>
-    </div>
-    <div id="box">
-        <div class="textStyle">
-            <p>{{nombreRestaurante}}</p>
-            <p>{{estado}} - {{ciudad}}</p>
-        </div>
-        <div class="starRate">
-            <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-        </div>
-    </div>
-    <div id="box">
-        <div class="textStyle">
-            <p>{{nombreRestaurante}}</p>
-            <p>{{estado}} - {{ciudad}}</p>
-        </div>
-        <div class="starRate">
-            <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
+    <div class="card">
+        <div id="box" *ngFor="let i of reservation">
+            <div class="textStyle w-100"  >
+                <i nz-icon nzType="coffee" nzTheme="outline" class="icon"></i><BR>
+                <p class="text-color w-100 title">{{i.restaurant}}</p>
+                <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
+                <p class="text-color w-100">{{i.state}} - {{i.city}}</p>
+            </div>
         </div>
     </div>
 </div>

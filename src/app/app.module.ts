@@ -59,6 +59,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { SearchRestaurantsComponent } from './pages/search-restaurants/search-restaurants.component';
 import { PricePipe } from './pipes/price.pipe';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 //Imports Angular Firebase
 registerLocaleData(es);
@@ -80,6 +81,7 @@ registerLocaleData(es);
   ],
   imports: [
     BrowserModule,
+    NzIconModule,
     NzGridModule,
     AppRoutingModule,
     IconsProviderModule,

@@ -7,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservacionesClienteComponent implements OnInit {
 
-  nombreCliente:string = "Elías";
-  nombreRestaurante:string = "Papitas calientes";
-  estado:string = "Pensilvania";
-  ciudad:string = "Philadelphia"
+  nombreCliente = 'Elías';
+
+  reservation = [
+    {
+      restaurant: 'Papitas calientes',
+      state: 'Pensilvania',
+      city: 'Philadelphia'
+    },
+    {
+      restaurant: 'Papitas calientes',
+      state: 'Pensilvania',
+      city: 'Philadelphia'
+    },
+    {
+      restaurant: 'Papitas calientes',
+      state: 'Pensilvania',
+      city: 'Philadelphia'
+    },
+    {
+      restaurant: 'Papitas calientes',
+      state: 'Pensilvania',
+      city: 'Philadelphia'
+    },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

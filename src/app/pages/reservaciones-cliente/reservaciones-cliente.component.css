@@ -16,15 +16,26 @@
 ::ng-deep .vertical-center-modal {
   display: flex;
   align-items: center;
-  justify-content: center;
+  align-content: center;
+ 
 }
-
+.card{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center !important;
+  height: 60%;
+}
 ::ng-deep .vertical-center-modal .ant-modal,nz-pagination {
   top: 0;
 }
-
-.container:before {
-  content:'';
+.icon{
+  font-size: 50px;
+  color: #fff;
+  padding-bottom: 10px;
+}
+.container::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -85,19 +96,20 @@ nz-select, nz-option{
 
 ::ng-deep .container #box{
   width:300px;
-  height:300px;
-  display: flex;
-  background-image: url("../../../assets/235388.jpg");
-  margin:1% 1%;
-  float: left;
-  border-radius:0%;
-  -webkit-transition:1500ms;
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  font-size: 10pt;
+      height:300px;
+      display: flex;
+      color:#000;
+      margin:1% 1%;
+      float: left;
+      border-radius:0%;
+      -webkit-transition:1500ms;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      align-items: center;
  }
+
  
 .container #box::before{
   content:'';
@@ -106,33 +118,42 @@ nz-select, nz-option{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.6);
+  background-color: #d3e1efdb;;
   -webkit-transition:1500ms;
+  color:#000;
 } 
 
 ::ng-deep .container  #box:hover::before{
   border-radius:100%;
-  -webkit-transition:1500ms;
-  text-align: left;
-  position: relative;
-  background-color: rgba(255,255,255,0);
+          -webkit-transition:1500ms;
+          text-align: left;
+          position: relative;
+          background-color: rgba(255,255,255,0);
   }
 
   ::ng-deep p{
     position: relative;
     color: white;
-    text-align: left;
+    margin: 0px;
 
   }
   ::ng-deep nz-rate .ant-rate{
-    width: 130%;
     position: relative;
-    margin-top: 50%;
-    margin-left: -32%;
     height: 30px;  
   }
+  .w-100{
+    width: 100% !important;
+   }
+  .title{
+    font-weight: bold !important;
+  }
+  .text-color{
+    color:#000;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
   .container .textStyle{
-    margin-top: 45%;
     height: 150px;
   }
   .container .starRate{
@@ -141,7 +162,7 @@ nz-select, nz-option{
   .container  #box:hover{
     border-radius:100%;
     -webkit-transition:1500ms;
-    font-size:13pt;
+    background-color: rgb(1 55 105);
     text-align: center;
     position: relative;
     }
