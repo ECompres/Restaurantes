@@ -83,7 +83,6 @@ export class SearchRestaurantsComponent implements OnInit {
     )
   }
   cityChanged() {
-    alert(this.city)
     this.restaurantService.getRestaurants(this.countryCode, this.page, this.estadoSelect, this.city).subscribe(
       (res) => {
         this.listOfData = res.restaurants;
@@ -94,42 +93,7 @@ export class SearchRestaurantsComponent implements OnInit {
       }
     )
   }
-  precioChanged() {
-    alert(this.precio.length)
-    if (this.city = "") {
-      this.restaurantService.getRestaurants(this.countryCode, this.page, this.estadoSelect, "", this.precio.length).subscribe(
-        (res) => {
-          this.listOfData = res.restaurants;
-          this.citiesFilter(this.listOfData);
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    }
-    else if (this.estadoSelect = "") {
-      this.restaurantService.getRestaurants(this.countryCode, this.page, "", "", this.precio.length).subscribe(
-        (res) => {
-          this.listOfData = res.restaurants;
-          this.citiesFilter(this.listOfData);
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    } else {
-      this.restaurantService.getRestaurants(this.countryCode, this.page, this.estadoSelect, this.city, this.precio.length).subscribe(
-        (res) => {
-          this.listOfData = res.restaurants;
-          this.citiesFilter(this.listOfData);
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    }
-  }
-
+  
   ngOnInit(): void {
     this.route.params.subscribe(
       (res) => {

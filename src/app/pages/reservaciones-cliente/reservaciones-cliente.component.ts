@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservacionesClienteComponent implements OnInit {
 
+  nombreCliente:string = "Elías";
+  nombreRestaurante:string = "Papitas calientes";
+  estado:string = "Pensilvania";
+  ciudad:string = "Philadelphia"
   constructor() { }
 
   ngOnInit(): void {

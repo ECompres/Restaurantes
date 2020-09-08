@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Restaurants } from 'src/app/Models/restaurants';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzResizeEvent } from 'ng-zorro-antd/resizable';
@@ -16,6 +16,9 @@ export class DetailRestaurantComponent implements OnInit {
   contentHeight = 200;
   id = -1;
 
+  fecha:any;
+  hora:any;
+  personas:any;
   constructor(private fb: FormBuilder) {
   }
 
@@ -47,6 +50,9 @@ export class DetailRestaurantComponent implements OnInit {
 
   data(): void {
     this.validForm();
+    this.fecha = this.form.value.reservationDate;
+    this.hora = this.form.value.reservationHour;
+    this.personas = this.form.value.people;
   }
 
   validForm(): void {
@@ -57,3 +63,9 @@ export class DetailRestaurantComponent implements OnInit {
     }
   }
 }
+/*
+InfoPipe - ToFireBase
+  {{fecha| date:"dd-MM-yyyy" }}
+  {{personas}}
+  {{hora| date:"shortTime"}}
+*/

@@ -1,0 +1,148 @@
+.container{
+  background-image: url("../../../assets/restaurantHomePage.jpg");    
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+::ng-deep .vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .vertical-center-modal .ant-modal,nz-pagination {
+  top: 0;
+}
+
+.container:before {
+  content:'';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+.container h1 {
+  font-size: 60px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.container h2 {
+  font-size: 40px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.container h3 {
+  font-size: 25px;
+  color: #fff;
+  position: relative;
+  text-align: left;
+}
+.container h4 {
+  font-size: 15px;
+  color: #fff;
+  position: relative;
+  text-align: left;
+}
+.tableContainer{
+  margin:1.5% 10% 1.5% 10%;
+  width:80%;
+}
+.container button {
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.container img{
+  width: 40px;
+  height: 40px;
+}
+nz-select, nz-option{
+  float: left;
+  font-size: 25px;
+  width:30%;
+  height: 50px;
+  align-content: center;
+}
+
+.ciudades{
+  margin-top: 60px;
+}
+
+::ng-deep .container #box{
+  width:300px;
+  height:300px;
+  display: flex;
+  background-image: url("../../../assets/235388.jpg");
+  margin:1% 1%;
+  float: left;
+  border-radius:0%;
+  -webkit-transition:1500ms;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  font-size: 10pt;
+ }
+ 
+.container #box::before{
+  content:'';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  -webkit-transition:1500ms;
+} 
+
+::ng-deep .container  #box:hover::before{
+  border-radius:100%;
+  -webkit-transition:1500ms;
+  text-align: left;
+  position: relative;
+  background-color: rgba(255,255,255,0);
+  }
+
+  ::ng-deep p{
+    position: relative;
+    color: white;
+    text-align: left;
+
+  }
+  ::ng-deep nz-rate .ant-rate{
+    width: 130%;
+    position: relative;
+    margin-top: 50%;
+    margin-left: -32%;
+    height: 30px;  
+  }
+  .container .textStyle{
+    margin-top: 45%;
+    height: 150px;
+  }
+  .container .starRate{
+    margin-top:50px;  
+  }
+  .container  #box:hover{
+    border-radius:100%;
+    -webkit-transition:1500ms;
+    font-size:13pt;
+    text-align: center;
+    position: relative;
+    }
+     
