@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { User } from '../../../Models/user';
 import { UserService } from 'src/app/Services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -25,12 +26,14 @@ export class RegisterComponent implements OnInit {
       lastName: this.validateForm.value.lastName,
       email: this.validateForm.value.email,
       password: this.validateForm.value.password,
-      reservations:[]
+      reservations: []
     }
 
     this.userService.registerUser(this.usuario)
       .then(
-        (res) => { console.log(res + " Usuario agregado") }
+        (res) => {
+          Swal.fire("Confirmado", "Usuario agregado!", "success")
+        }
       )
       .catch(
         (error) => { console.log("Error: " + error) }
