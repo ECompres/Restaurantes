@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Restaurants } from 'src/app/Models/restaurants';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzResizeEvent } from 'ng-zorro-antd/resizable';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'firebase';
+import { Reservation } from 'src/app/Models/reservation';
 
 @Component({
   selector: 'app-detail-restaurant',
@@ -16,14 +19,31 @@ export class DetailRestaurantComponent implements OnInit {
   contentHeight = 200;
   id = -1;
 
-  fecha:any;
-  hora:any;
-  personas:any;
-  constructor(private fb: FormBuilder) {
+  fecha: any;
+  hora: any;
+  personas: any;
+  user;
+  reservation: Reservation;
+  userID = localStorage.getItem("idUser");
+  constructor(private fb: FormBuilder, private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.initForm();
+    this.userService.getUsuario(this.userID).subscribe(
+      (res) => {
+        this.user = {
+          name: res.data().name,
+          lastName: res.data().lastName,
+          email: res.data().email,
+          password: res.data().password,
+          reservations: res.data().reservations
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
   initForm(): void {
@@ -49,10 +69,16 @@ export class DetailRestaurantComponent implements OnInit {
   }
 
   data(): void {
-    this.validForm();
-    this.fecha = this.form.value.reservationDate;
-    this.hora = this.form.value.reservationHour;
-    this.personas = this.form.value.people;
+
+    this.reservation = {
+      idRestaurant: this.restaurant.id,
+      fecha: this.form.value.reservationDate,
+      hora: this.form.value.reservationHour,
+      cantidadPersonas: this.form.value.people,
+    }
+    this.user.reservations.push(this.reservation);
+    this.userService.updateUsuario("kQfe2qH3ZsMlMPpdmspo", this.user);
+
   }
 
   validForm(): void {

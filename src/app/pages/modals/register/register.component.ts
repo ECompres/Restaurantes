@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
 
   validateForm!: FormGroup;
-  public usuario: User;
+  public usuario;
   constructor(private fb: FormBuilder, private userService: UserService) {
   }
 

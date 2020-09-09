@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservacionesClienteComponent implements OnInit {
 
-  nombreCliente = 'Elías';
+  nombreCliente = localStorage.getItem("name") + " " +localStorage.getItem("lastName");
 
   reservation = [
     {
