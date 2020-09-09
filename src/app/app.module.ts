@@ -7,12 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { CountryPipe } from './pipes/country.pipe';
 import { UsStatesPipe } from './pipes/us-states.pipe';
 import { environment } from '../environments/environment';
 import { RatingModule } from 'ng-starrating';
-
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { AgmCoreModule } from '@agm/core';
 //AngularCore Imports
 
 //Imports Componentes Angular
@@ -25,7 +25,7 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { ReservacionesClienteComponent } from './pages/reservaciones-cliente/reservaciones-cliente.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component'
 import { RegisterComponent } from './pages/modals/register/register.component';
-import { DetailRestaurantComponent } from './pages/detail-restaurant/detail-restaurant.component';
+import { DetailRestaurantComponent } from './pages/modals/detail-restaurant/detail-restaurant.component';
 import { LoginComponent } from './pages/modals/login/login.component';
 //Import Componentes
 
@@ -49,6 +49,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzResizableModule } from 'ng-zorro-antd/resizable';
 //Imports NgZorro Componentes
 
 //Imports Angular Firebase
@@ -58,6 +59,10 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { SearchRestaurantsComponent } from './pages/search-restaurants/search-restaurants.component';
 import { PricePipe } from './pipes/price.pipe';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import { DetailReservationComponent } from './pages/modals/detail-reservation/detail-reservation.component';
 
 //Imports Angular Firebase
 registerLocaleData(es);
@@ -75,10 +80,13 @@ registerLocaleData(es);
     LoginComponent,
     SearchRestaurantsComponent,
     PricePipe,
+    DetailReservationComponent,
 
   ],
   imports: [
     BrowserModule,
+    NzIconModule,
+    NzGridModule,
     AppRoutingModule,
     IconsProviderModule,
     NzLayoutModule,
@@ -101,7 +109,15 @@ registerLocaleData(es);
     NzPaginationModule,
     RatingModule,
     NzInputNumberModule,
-    NzCardModule
+    NzCardModule,
+    NzResizableModule,
+    NgxPaginationModule,
+    
+    AgmCoreModule.forRoot(
+      {
+        apiKey: 'AIzaSyAMhgAR8oCjKZv1f6QYU0tCIDNQTfdQaFs'
+      }
+    )
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ,
     RestaurantService,

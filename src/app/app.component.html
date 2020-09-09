@@ -13,11 +13,11 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome">Inicio</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
+          <li nz-menu-item nzMatchRouter *ngIf="loggedVal">
+            <a [routerLink]="['/reservacionesCliente']">Reservaciones</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
+          <li nz-menu-item nzMatchRouter *ngIf="loggedVal">
+            <a (click)="cerrarSesion()">Cerrar sesión</a>
           </li>
         </ul>
       </li>

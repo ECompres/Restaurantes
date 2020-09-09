@@ -1,17 +1,44 @@
 import { Injectable } from '@angular/core';
 import { User } from '../Models/user';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {AngularFireDatabase } from '@angular/fire/database'
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private firestore: AngularFirestore, private fireAuth: AngularFireAuth) { }
+  private collection: AngularFirestoreCollection<User>
+  public items: Observable<User[]>;
+
+  constructor(private firestore: AngularFirestore, private fireAuth: AngularFireAuth) {
+    this.collection = this.firestore.collection<User>('Usuarios');
+    this.items = this.collection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as User;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })))
+  }
+
+  getUsuarios(): Observable<any> {
+    return this.items;
+  }
 
   registerUser(user: User): Promise<any> {
-    this.fireAuth.createUserWithEmailAndPassword(user.email, user.password);
+    this.fireAuth.createUserWithEmailAndPassword(user.email, user.password).then(
+      () => { 
+        Swal.fire('Hecho!', 'Usuario registrado', 'success')
+      }
+    )
+    .catch(
+      () => {
+        Swal.fire("Error!", "Usuario ya existe!", "error")
+      }
+    )
+    ;
     return this.firestore.collection('Usuarios').add(user)
   }
 
@@ -19,11 +46,27 @@ export class UserService {
     return this.fireAuth.signInWithEmailAndPassword(email, password)
   }
 
-  getUserData(id: string) {
-    return this.firestore.collection('Usuarios').doc(id).get();
+  getUsuario(id: string) {
+    return this.firestore.collection("Usuarios").doc(id).get();
   }
-  recoverPassword(email: string) {
-    return this.fireAuth.sendPasswordResetEmail(email);
+
+  getDataId(email: string) {
+    return this.firestore.collection("Usuarios", ref => ref.where("email", "==", email)).get();
+  }
+
+  updateUsuario(id: string, user: User) {
+    let obj: User = {
+      name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+      reservations: user.reservations
+    }
+    return this.firestore.collection("Usuarios").doc(id).update(obj).then(
+      () => { 
+        Swal.fire('Hecho!', 'Reservación realizada', 'success')
+      }
+    );
   }
 
 }

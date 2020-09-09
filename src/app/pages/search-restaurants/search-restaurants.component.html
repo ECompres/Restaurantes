@@ -27,7 +27,7 @@
     </div>
 
     <div class="tableContainer">
-        <nz-table #basicTable [nzData]="listOfData" [nzPaginationPosition]="nzPaginationPosition">
+        <nz-table #basicTable [nzData]="listOfData" [nzPaginationPosition]="nzPaginationPosition" [nzPageSize]="7">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -46,7 +46,7 @@
                     <td>{{ data.address }}</td>
                     <td>{{ data.city }}</td>
                     <td>
-                        {{data.price}}/4
+                        <nz-rate [ngModel]="data.price" nzDisabled [nzCount]="4"></nz-rate>
                     </td>
                     <td><a><img (click)="reservate(data)" src="../../../assets/add.png"></a></td>
                 </tr>

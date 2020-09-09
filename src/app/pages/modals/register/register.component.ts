@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { User } from '../../../Models/user';
 import { UserService } from 'src/app/Services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/Services/user.service';
 export class RegisterComponent implements OnInit {
 
   validateForm!: FormGroup;
-  public usuario: User;
+  public usuario;
   constructor(private fb: FormBuilder, private userService: UserService) {
   }
 
@@ -25,17 +26,10 @@ export class RegisterComponent implements OnInit {
       lastName: this.validateForm.value.lastName,
       email: this.validateForm.value.email,
       password: this.validateForm.value.password,
-      reservations:[]
+      reservations: []
     }
 
-    this.userService.registerUser(this.usuario)
-      .then(
-        (res) => { console.log(res + " Usuario agregado") }
-      )
-      .catch(
-        (error) => { console.log("Error: " + error) }
-      )
-
+    this.userService.registerUser(this.usuario);
   }
 
   updateConfirmValidator(): void {
