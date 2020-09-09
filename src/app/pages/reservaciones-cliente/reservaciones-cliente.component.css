@@ -12,6 +12,10 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
 }
 ::ng-deep .vertical-center-modal {
   display: flex;
@@ -31,8 +35,8 @@
   top: 0;
 }
 .icon{
-  font-size: 50px;
-  color: #fff;
+  font-size: 30px;
+  color: #013769;;
   padding-bottom: 10px;
 }
 .container::before {
@@ -108,17 +112,21 @@ nz-select, nz-option{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #d3e1efdb;;
+  background-color: #d3e1efd1;
   -webkit-transition:1500ms;
   color:#000;
+  box-shadow: 0px 2px 2px rgb(255, 255, 255);
 } 
 
 ::ng-deep .container  #box:hover::before{
   border-radius:100%;
           -webkit-transition:1500ms;
-          text-align: left;
+          text-align: center;
+          align-content: center;
+          align-items: center;
           position: relative;
           background-color: rgba(255,255,255,0);
+
   }
 
   ::ng-deep p{
@@ -145,6 +153,12 @@ nz-select, nz-option{
   }
   .container .textStyle{
     height: 150px;
+    padding-top: 10%;
+    background-color:#fff;
+    box-shadow: 0px 10px 10px rgba(124, 124, 124, 0.3);
+    margin: 30px;
+    height: 80%;
+    z-index: 2;
   }
   .container .starRate{
     margin-top:50px;  
@@ -152,8 +166,40 @@ nz-select, nz-option{
   .container  #box:hover{
     border-radius:100%;
     -webkit-transition:1500ms;
-    background-color: rgb(1 55 105);
+    background-color: #e9f8ff !important;
     text-align: center;
     position: relative;
     }
-     
+    .textStyle:hover{
+      border-radius:100%;
+      width: 100%;
+      margin: 0px;
+      background-color: #e9f8ff !important;
+      -webkit-transition:1500ms;
+      text-align: center;
+      position: relative;
+      height: 100%;
+    }
+    .h-100{
+      height: 100%;
+    }
+    .center{
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      justify-content: center !important;
+      display: flex;
+    }
+    .paginator{
+      height: 30px;
+      width: 100px;
+      margin: 15px;
+      background-color: #e9f8ff87;
+    }
+    ::ng-deep .ngx-pagination{
+      font-weight: bold !important;
+    }
+   ::ng-deep .ngx-pagination .disabled{
+      color: #fafafa !important;
+      font-weight: bold !important;
+    }

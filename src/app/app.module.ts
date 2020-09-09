@@ -61,6 +61,8 @@ import { SearchRestaurantsComponent } from './pages/search-restaurants/search-re
 import { PricePipe } from './pipes/price.pipe';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 //Imports Angular Firebase
 registerLocaleData(es);
 
@@ -107,6 +109,7 @@ registerLocaleData(es);
     NzInputNumberModule,
     NzCardModule,
     NzResizableModule,
+    NgxPaginationModule,
     
     AgmCoreModule.forRoot(
       {

@@ -1,13 +1,25 @@
-<div class="container">
-    <h2>Reservaciones de: {{nombreCliente}} </h2>
-    <div class="card">
-        <div id="box" *ngFor="let i of reservation">
-            <div class="textStyle w-100"  >
-                <i nz-icon nzType="coffee" nzTheme="outline" class="icon"></i><BR>
-                <p class="text-color w-100 title">{{i.restaurant}}</p>
-                <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-                <p class="text-color w-100">{{i.state}} - {{i.city}}</p>
-            </div>
+
+<nz-list nz-list-pagination nzGrid class="container w-100 h-100">
+    <div nz-row [nzGutter]="16" class="center w-100 h-100">
+        <div  nz-col [nzSpan]="24">
+            <h2>Reservaciones de: {{nombreCliente}} </h2>
         </div>
+      <div nz-col [nzSpan]="8" #items *ngFor="let item of contentArray | paginate: { itemsPerPage: 3, currentPage: page }" class="card h-100">
+        <nz-list-item id="box"> 
+            <div class="textStyle w-100"  >
+                <i nz-icon nzType="coffee" nzTheme="outline" class="icon "></i><BR>
+                <p class="text-color w-100 title">{{item.restaurant}}</p>
+                <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
+                <p class="text-color w-100">{{item.state}} - {{item.city}}</p>
+            </div>
+        </nz-list-item>
+      </div>
+      <div nz-col class="paginator" [nzSpan]="24">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+      <div>
+        
+      </div>
     </div>
-</div>
+  </nz-list>
+
