@@ -88,7 +88,7 @@ export class ReservacionesClienteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.returnedArray = this.contentArray.slice(0, 1);
+    this.returnedArray = this.restaurantesCliente.slice(0, 1);
     if (this.userID != null) {
       this.userService.getUsuario(this.userID).subscribe(
         (res) => {

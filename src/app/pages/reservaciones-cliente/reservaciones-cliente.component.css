@@ -58,6 +58,8 @@
   color: #fff;
   position: relative;
   text-align: center;
+  margin-bottom: 45px;
+  margin-top: 15px;
 }
 .container h3 {
   font-size: 25px;
@@ -112,7 +114,7 @@ nz-select, nz-option{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #d3e1efd1;
+  background-color: #84dbf57a;
   -webkit-transition:1500ms;
   color:#000;
   box-shadow: 0px 2px 2px rgb(255, 255, 255);
@@ -186,21 +188,29 @@ nz-select, nz-option{
     }
     .center{
       justify-items: center;
+      background-color: #25323887;
       align-items: center;
       align-content: center;
       justify-content: center !important;
       display: flex;
+      padding-top: 30px;
+      padding-bottom: 30px;
     }
     .paginator{
       height: 30px;
       width: 100px;
       margin: 15px;
-      background-color: #e9f8ff87;
+      padding-top: 15px;
     }
     ::ng-deep .ngx-pagination{
       font-weight: bold !important;
+      color: #fafafa !important;
     }
    ::ng-deep .ngx-pagination .disabled{
       color: #fafafa !important;
       font-weight: bold !important;
     }
+    ::ng-deep  .ngx-pagination a, .ngx-pagination button {
+      color: #fafafa !important;
+     
+  }
