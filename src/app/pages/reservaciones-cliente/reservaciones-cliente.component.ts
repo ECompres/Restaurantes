@@ -8,11 +8,10 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 export class ReservacionesClienteComponent implements OnInit {
 
-  nombreCliente = 'Elías'; 
+  nombreCliente = 'Elías';
   page = 1;
-  returnedArray: Array<any>;
- 
-  contentArray =[
+
+  contentArray = [
     {
       restaurant: 'Papitas calientes',
       state: 'Pensilvania',
@@ -32,7 +31,7 @@ export class ReservacionesClienteComponent implements OnInit {
       restaurant: 'Papitas calientes',
       state: 'Pensilvania',
       city: 'Philadelphia'
-    },    {
+    }, {
       restaurant: 'Papitas calientes',
       state: 'Pensilvania',
       city: 'Philadelphia'
@@ -56,23 +55,16 @@ export class ReservacionesClienteComponent implements OnInit {
       restaurant: 'Papitas calientes',
       state: 'Pensilvania',
       city: 'Philadelphia'
-    },    {
+    }, {
       restaurant: 'Papitas calientes',
       state: 'Pensilvania',
       city: 'Philadelphia'
     }
-   
+
   ];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.returnedArray = this.contentArray.slice(0, 1);
-  }
- 
-  pageChanged(event: PageChangedEvent): void {
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.returnedArray = this.contentArray.slice(startItem, endItem);
   }
 }
