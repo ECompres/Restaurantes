@@ -25,7 +25,7 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { ReservacionesClienteComponent } from './pages/reservaciones-cliente/reservaciones-cliente.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component'
 import { RegisterComponent } from './pages/modals/register/register.component';
-import { DetailRestaurantComponent } from './pages/detail-restaurant/detail-restaurant.component';
+import { DetailRestaurantComponent } from './pages/modals/detail-restaurant/detail-restaurant.component';
 import { LoginComponent } from './pages/modals/login/login.component';
 //Import Componentes
 
@@ -62,6 +62,7 @@ import { PricePipe } from './pipes/price.pipe';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { DetailReservationComponent } from './pages/modals/detail-reservation/detail-reservation.component';
 
 //Imports Angular Firebase
 registerLocaleData(es);
@@ -79,6 +80,7 @@ registerLocaleData(es);
     LoginComponent,
     SearchRestaurantsComponent,
     PricePipe,
+    DetailReservationComponent,
 
   ],
   imports: [

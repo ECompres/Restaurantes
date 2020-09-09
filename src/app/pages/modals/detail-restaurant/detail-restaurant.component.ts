@@ -77,7 +77,7 @@ export class DetailRestaurantComponent implements OnInit {
       cantidadPersonas: this.form.value.people,
     }
     this.user.reservations.push(this.reservation);
-    this.userService.updateUsuario("kQfe2qH3ZsMlMPpdmspo", this.user);
+    this.userService.updateUsuario(this.userID, this.user);
 
   }
 
@@ -89,9 +89,3 @@ export class DetailRestaurantComponent implements OnInit {
     }
   }
 }
-/*
-InfoPipe - ToFireBase
-  {{fecha| date:"dd-MM-yyyy" }}
-  {{personas}}
-  {{hora| date:"shortTime"}}
-*/

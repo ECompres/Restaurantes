@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("idUser", res.docs[0].id);
               localStorage.setItem("name", res.docs[0].data().name);
               localStorage.setItem("lastName", res.docs[0].data().lastName);
-              this.route.navigate(['/restaurants']);
+              this.route.navigateByUrl('/restaurants');
             }
             ,
             err => { console.log(err) }

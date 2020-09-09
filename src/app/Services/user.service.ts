@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,17 @@ export class UserService {
   }
 
   registerUser(user: User): Promise<any> {
-    this.fireAuth.createUserWithEmailAndPassword(user.email, user.password);
+    this.fireAuth.createUserWithEmailAndPassword(user.email, user.password).then(
+      () => { 
+        Swal.fire('Hecho!', 'Usuario registrado', 'success')
+      }
+    )
+    .catch(
+      () => {
+        Swal.fire("Error!", "Usuario ya existe!", "error")
+      }
+    )
+    ;
     return this.firestore.collection('Usuarios').add(user)
   }
 
@@ -52,7 +63,9 @@ export class UserService {
       reservations: user.reservations
     }
     return this.firestore.collection("Usuarios").doc(id).update(obj).then(
-      () => { console.log("Usuario editado") }
+      () => { 
+        Swal.fire('Hecho!', 'Reservación realizada', 'success')
+      }
     );
   }
 

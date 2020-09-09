@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -7,16 +8,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  setSeleccionado(user) {
-    console.log(user);
-  }
-  ngOnInit() {
-  }
+  logged: string = localStorage.getItem('logged');
+  loggedVal: boolean;
+  constructor(private route: Router) { }
+
+
   isVisibleRegister = false;
   isVisibleLogin = false;
 
-  constructor() { }
 
+
+  ngOnInit() {
+    if (localStorage.getItem('logged') != null) {
+      if (this.logged == "true") {
+        this.route.navigateByUrl('restaurants')
+      }
+    }
+  }
   showModalRegister(): void {
     this.isVisibleRegister = true;
   }

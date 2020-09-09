@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurants } from 'src/app/Models/restaurants';
 import { RestaurantService } from 'src/app/Services/restaurant.service';
 
@@ -10,7 +10,6 @@ import { RestaurantService } from 'src/app/Services/restaurant.service';
 })
 export class SearchRestaurantsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private restaurantService: RestaurantService) { }
   listOfData: Restaurants[];
   page: number = 1;
   countryCode: string;
@@ -25,6 +24,9 @@ export class SearchRestaurantsComponent implements OnInit {
   city: string;
   precio: string;
   precios = ["$", "$$", "$$$", "$$$$"]
+
+  constructor(private route: ActivatedRoute, private restaurantService: RestaurantService, private router:Router) { }
+
 
   getRestaurants(page) {
     this.restaurantService.getRestaurants(this.countryCode, page, "", "").subscribe(
@@ -93,7 +95,7 @@ export class SearchRestaurantsComponent implements OnInit {
       }
     )
   }
-  
+
   ngOnInit(): void {
     this.route.params.subscribe(
       (res) => {
@@ -111,6 +113,11 @@ export class SearchRestaurantsComponent implements OnInit {
       this.state = ["BC", "AB", "SK", "MB", "ON", "QC", "NS", "NB"]
     }
     console.log(this.state)
+    if (localStorage.getItem('logged') == null) {
+
+      this.router.navigate(['/welcome']);
+
+    }
   }
 
 }

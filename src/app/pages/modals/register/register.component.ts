@@ -29,16 +29,7 @@ export class RegisterComponent implements OnInit {
       reservations: []
     }
 
-    this.userService.registerUser(this.usuario)
-      .then(
-        (res) => {
-          Swal.fire("Confirmado", "Usuario agregado!", "success")
-        }
-      )
-      .catch(
-        (error) => { console.log("Error: " + error) }
-      )
-
+    this.userService.registerUser(this.usuario);
   }
 
   updateConfirmValidator(): void {

@@ -4,6 +4,7 @@ import { UserService } from '../../Services/user.service';
 import { User } from '../../Models/user';
 import { Restaurants } from 'src/app/Models/restaurants';
 import { RestaurantService } from 'src/app/Services/restaurant.service';
+import { Reservation } from 'src/app/Models/reservation';
 
 @Component({
   selector: 'app-reservaciones-cliente',
@@ -18,60 +19,10 @@ export class ReservacionesClienteComponent implements OnInit {
   returnedArray: Array<any>;
   userID: string = localStorage.getItem("idUser")
   usuario: User;
-
+  reservacionClienteModal = false;
+  reservacion: Reservation;
+  restauranteSeleccionado: Restaurants;
   restaurantesCliente = [];
-
-  contentArray = [
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    }, {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    },
-    {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    }, {
-      restaurant: 'Papitas calientes',
-      state: 'Pensilvania',
-      city: 'Philadelphia'
-    }
-
-  ];
 
   constructor(private userService: UserService, private restaurantService: RestaurantService) { }
 
@@ -110,10 +61,20 @@ export class ReservacionesClienteComponent implements OnInit {
     }
 
   }
+  getData(index) {
+    this.reservacionClienteModal = true;
+    this.reservacion = this.usuario.reservations[index]
+    this.restauranteSeleccionado = this.restaurantesCliente[index];
+    console.log(this.reservacion);
+    console.log(this.restauranteSeleccionado);
 
+  }
+  handleCancel() {
+    this.reservacionClienteModal = false;
+  }
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
-    this.returnedArray = this.contentArray.slice(startItem, endItem);
+    this.returnedArray = this.restaurantesCliente.slice(startItem, endItem);
   }
 }

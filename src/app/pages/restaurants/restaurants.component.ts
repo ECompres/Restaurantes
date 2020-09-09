@@ -15,6 +15,8 @@ export class RestaurantsComponent implements OnInit {
   codeCountries: string[] = ["AW", "CA", "CN", "GP", "HK", "KN", "KY", "MO", "MX", "MY", "SV", "US", "VI"]
   public restaurants: Restaurants[]
   selectCode: string = "AW";
+  logged: string = localStorage.getItem('logged');
+
   array = [
     "https://eldiariony.com/wp-content/uploads/sites/2/2020/03/jason-leung-poi7delfiva-unsplash.jpg?quality=60&strip=all&w=940",
     "https://www.mariel-hotel.com/wp-content/uploads/2019/04/maido.jpg",
@@ -22,6 +24,11 @@ export class RestaurantsComponent implements OnInit {
     "https://www.managementgourmet.com/wp-content/uploads/2019/02/RUYA-NEW-3-1080x675.jpg"
   ];
   ngOnInit(): void {
+    if (localStorage.getItem('logged') == null) {
+      
+        this.route.navigate(['/welcome']);
+      
+    }
   }
   Go(code) {
     this.route.navigate(['searchRestaurants', code]);
