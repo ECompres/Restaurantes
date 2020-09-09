@@ -1,25 +1,26 @@
-
 <nz-list nz-list-pagination nzGrid class="container w-100 h-100">
-    <div nz-row [nzGutter]="16" class="center w-100 h-100">
-        <div  nz-col [nzSpan]="24">
-            <h2>Reservaciones de: {{nombreCliente}} </h2>
-        </div>
-      <div nz-col [nzSpan]="8" #items *ngFor="let item of contentArray | paginate: { itemsPerPage: 3, currentPage: page }" class="card h-100">
-        <nz-list-item id="box"> 
-            <div class="textStyle w-100"  >
-                <i nz-icon nzType="coffee" nzTheme="outline" class="icon "></i><BR>
-                <p class="text-color w-100 title">{{item.restaurant}}</p>
-                <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
-                <p class="text-color w-100">{{item.state}} - {{item.city}}</p>
-            </div>
-        </nz-list-item>
-      </div>
-      <div nz-col class="paginator" [nzSpan]="24">
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
-      </div>
-      <div>
-        
-      </div>
+  <div nz-row [nzGutter]="16" class="center w-100 h-100">
+    <div nz-col [nzSpan]="24">
+      <h2>Reservaciones de: {{nombreCliente}} </h2>
     </div>
-  </nz-list>
+    <div nz-col [nzSpan]="8" #items
+      *ngFor="let item of restaurantesCliente | paginate: { itemsPerPage: 3, currentPage: page }" class="card h-100">
+      <nz-list-item id="box">
+        <div class="textStyle w-100">
+          <i nz-icon nzType="coffee" nzTheme="outline" class="icon "></i><BR>
+          <p class="text-color w-100 title">{{item.name}}</p>
+          <nz-rate [ngModel]="3" nzDisabled [nzCount]="4"></nz-rate>
+          <p *ngIf="item.state!=null" class="text-color w-100">{{item.state | usStates}} - {{item.city}}</p>
+          <p *ngIf="item.state==null" class="text-color w-100">{{item.country|country}} - {{item.city}}</p>
 
+        </div>
+      </nz-list-item>
+    </div>
+    <div nz-col class="paginator" [nzSpan]="24">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</nz-list>
