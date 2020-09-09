@@ -73,16 +73,6 @@
   position: relative;
   text-align: left;
 }
-.tableContainer{
-  margin:1.5% 10% 1.5% 10%;
-  width:80%;
-}
-.container button {
-  font-size: 20px;
-  color: #fff;
-  position: relative;
-  text-align: center;
-}
 
 .container img{
   width: 40px;

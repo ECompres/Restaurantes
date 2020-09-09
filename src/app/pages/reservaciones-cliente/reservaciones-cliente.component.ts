@@ -8,7 +8,8 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 export class ReservacionesClienteComponent implements OnInit {
 
-  nombreCliente = 'Elías';
+
+  nombreCliente: string = localStorage.getItem("name") + " " + localStorage.getItem("lastName");
   page = 1;
 
   contentArray = [
